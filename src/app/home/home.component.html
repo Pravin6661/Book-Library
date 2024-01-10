@@ -1,0 +1,15 @@
+<div class="book-main">
+    <div class="Book">
+      <h2>Book Details</h2>
+    </div>
+    <div *ngFor="let book of dataBook; let i = index">
+        <h3>Id: {{book.id}}, Name: {{book.coursename}} |
+          <ng-container *ngIf="viewShown[i]">
+            <a (click)="viewDetails(i)">View Details</a>
+          </ng-container>
+        </h3>
+        <ng-container *ngIf="description[i]">
+          <p>{{book.description}}</p>
+        </ng-container>
+    </div>
+  </div>

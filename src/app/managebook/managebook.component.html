@@ -1,0 +1,44 @@
+<div class="addbook">
+    <div *ngFor="let book of dataBook; let i = index"  class="main-div">
+      <div>
+        <h1>ID : {{book.id}}</h1>
+      </div>
+      <div>
+        <h2>{{book.coursename}}</h2>
+      </div>
+      <div>
+        <p>{{book.description}}</p>
+      </div>
+      <div class="button-flex">
+        <div><button class="btn" (click)="updateBook(this.book.id)">Update</button></div>
+        <div><i class="fa-solid fa-trash" (click)="deleteBook(this.book.id)"></i></div>
+      </div>
+    </div>
+
+
+      <div *ngIf="showForm" class="addbook-form">
+        <form [formGroup]="Addnewbook" (ngSubmit)="Addnewbook.valid && bookUpdation()">
+          <div class="close">
+            <i class="fa-solid fa-xmark" (click)="closeForm()"></i>
+          </div>
+          <div class="form-control">
+            <label for="id">Book ID</label>
+            <input type="tel" placeholder="ID" formControlName="id">
+            <small *ngIf="Addnewbook.controls['id'].errors?.['required'] && Addnewbook.controls['id'].dirty">Book ID is required</small>
+          </div>
+          <div class="form-control">
+            <label for="coursename">Book Name</label>
+            <input type="text" placeholder="Book Name" formControlName="coursename">
+            <small *ngIf="Addnewbook.controls['coursename'].errors?.['required'] && Addnewbook.controls['coursename'].dirty">Book Name is required</small>
+          </div>
+          <div class="form-control">
+            <label for="description">Book Description</label>
+            <textarea cols="30" rows="7" placeholder="Description" formControlName="description"></textarea>
+            <small *ngIf="Addnewbook.controls['description'].errors?.['required'] && Addnewbook.controls['description'].dirty">Book Description is required</small>
+          </div>
+          <div>
+            <button type="submit" class="btn">Update Book</button>
+          </div>
+        </form>
+      </div>
+  </div>

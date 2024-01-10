@@ -1,0 +1,20 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem 1.5rem 3rem;
+  background-color: #47cbda;
+}
+nav{
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+nav a{
+  text-decoration: none;
+  font-weight: 800;
+}
+header nav .active{
+  color: rgb(66, 198, 86);
+  border-bottom: 2px solid rgb(65, 201, 92);
+}
